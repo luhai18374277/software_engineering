@@ -32,7 +32,10 @@ public class UserServicelmpl implements UserService {
         userDao.updateUserInformation(user);
     }
 
-
+    @Override
+    public Users selectUserByUserid(Integer rid) {
+        return userDao.selectUserByUserid(rid);
+    }
 
 
 }

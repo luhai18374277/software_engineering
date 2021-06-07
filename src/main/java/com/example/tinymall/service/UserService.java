@@ -11,5 +11,5 @@ public interface UserService {
 
     public void updateUserInformation(Users user);
 
-
+    public Users selectUserByUserid(Integer rid);
 }

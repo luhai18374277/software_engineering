@@ -3,7 +3,7 @@ package com.example.tinymall.service;
 import com.example.tinymall.entity.Message;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public interface MessageService {
     public void sendNewMessage(Message message);

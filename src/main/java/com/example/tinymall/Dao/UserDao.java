@@ -10,5 +10,5 @@ public interface UserDao {
     public void registerNewUser(Users user);
     public Users checkUserPassword(String username, String password);
     public void updateUserInformation(Users user);
-
+    public Users selectUserByUserid(Integer rid);
 }
