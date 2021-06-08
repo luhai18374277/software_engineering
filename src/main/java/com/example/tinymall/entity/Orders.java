@@ -13,6 +13,7 @@ public class Orders {
     private Integer GID; //商品ID
     private Integer UID; //用户ID
     private String address; //配送位置
+    private Integer num;//商品数量
 
     public Orders() {}
 
@@ -52,5 +53,13 @@ public class Orders {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
     }
 }
