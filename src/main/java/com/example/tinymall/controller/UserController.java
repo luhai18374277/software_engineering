@@ -24,7 +24,7 @@ public class UserController {
         Map<String, Object> map = new HashMap<>();
         try {
             Users student = new Users(username, password);
-            Users student1 = userService.selectUserByUsername(student.getUsername());
+            Users student1 = userService.selectUserByUsername(student.getName());
             if (student1 != null) {
                 map.put("success", false);
                 map.put("message", "用户名已注册！");
@@ -44,12 +44,12 @@ public class UserController {
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public CommonResult<String> login(@RequestBody Users user, HttpSession session) {
-        String username = user.getUsername();
+        String username = user.getName();
         String password = user.getPassword();
         try {
             Users user1 = userService.selectUserByUsername(username);
             if (user1 != null) {
-                Users user2 = userService.checkUserPassword(user1.getUsername(), password);
+                Users user2 = userService.checkUserPassword(user1.getName(), password);
                 if (user2 != null) {
                     session.setAttribute("loginUser", user2);
                     return CommonResult.success("用户登录成功");
@@ -84,14 +84,13 @@ public class UserController {
         Map<String, Object> map = new HashMap<>();
         try {
             Users loginer= (Users) session.getAttribute("loginUser");
-            Users student1 = userService.selectUserByUsername(user.getUsername());
-            if (student1 != null && !student1.getUsername().equals(loginer.getUsername())) {
+            Users student1 = userService.selectUserByUsername(user.getName());
+            if (student1 != null && !student1.getName().equals(loginer.getName())) {
                 map.put("success", false);
                 map.put("message", "用户名已注册！");
 
             }
             else{
-                user.setUID(loginer.getUID());
                 userService.updateUserInformation(user);
                 map.put("success", true);
                 map.put("message", "用户修改成功！");

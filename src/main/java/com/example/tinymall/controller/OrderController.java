@@ -62,7 +62,7 @@ public class OrderController {
         try {
             String str = "";
             for (Orders orders:orderService.orderList(myself.getUID())){
-                str += "OID:"+orders.getOID()+" GID:"+orders.getGID()+" Address:"+orders.getAddress()+"\n";
+                str += "OID:"+orders.getId()+" GID:"+orders.getGID()+" Address:"+orders.getAddress()+"\n";
             }
             return CommonResult.success(str);
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class OrderController {
         try {
             String str = "";
             for (Good good:orderService.findGoodsByName("%"+string+"%")){
-                str += "GID:"+good.getGID()+" Name:"+good.getGoodsname()+"\n";
+                str += "GID:"+good.getId()+" Name:"+good.getTitle()+"\n";
             }
             System.out.println(str);
             return CommonResult.success(str);
@@ -103,7 +103,7 @@ public class OrderController {
             Integer i = good.getGID();
             Good good1 = orderService.findGoods(i);
             if (good1!= null){
-                return CommonResult.success("商品"+good1.getGoodsname());
+                return CommonResult.success("商品"+good1.getTitle());
             }else {
                 return CommonResult.failed("无该商品!"+i);
             }

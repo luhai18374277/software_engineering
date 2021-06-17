@@ -23,7 +23,7 @@ public class FriendController {
     @RequestMapping(value = "/friendadd",method = RequestMethod.POST)
     public CommonResult<String> friendadd(@RequestBody Users friend, HttpSession session) {
         Users myself = (Users)session.getAttribute("loginUser");
-        String friendName = friend.getUsername();
+        String friendName = friend.getName();
         try {
             Users user1 = userService.selectUserByUsername(friendName);
             if (user1 != null) {
@@ -52,7 +52,7 @@ public class FriendController {
     @RequestMapping(value = "/deletefriendship",method = RequestMethod.POST)
     public CommonResult<String> deleteFriendship(@RequestBody Users friend, HttpSession session) {
         Users myself = (Users)session.getAttribute("loginUser");
-        String friendName = friend.getUsername();
+        String friendName = friend.getName();
         try {
             Users user1 = userService.selectUserByUsername(friendName);
             if (user1 != null) {
@@ -81,7 +81,7 @@ public class FriendController {
         try {
             String str = "好友列表：";
             for (Users user:friendService.friendList(myself.getUID())){
-                str += user.getUsername()+"\n";
+                str += user.getName()+"\n";
             }
             return CommonResult.success(str);
         } catch (Exception e) {

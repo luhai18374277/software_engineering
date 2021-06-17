@@ -1,94 +1,44 @@
 package com.example.tinymall.entity;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Data
 @Entity
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer UID;
 
-    private String username;
-    private String password;
+    private String id;
+    private String name;
+    private String phone;
     private String email;
-    private String Gender;
-    private String Avatar;
-    private String Phone;
+    private String profileImage;
+    private String password;
+    private String birthday;
 
-    public Users(String username, String password) {
+    public Users(){}
+
+    public Users(String name, String password) {
         this.password = password;
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getGender() {
-        return Gender;
-    }
-
-    public void setGender(String gender) {
-        Gender = gender;
-    }
-
-    public String getAvatar() {
-        return Avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        Avatar = avatar;
-    }
-
-    public String getPhone() {
-        return Phone;
-    }
-
-    public void setPhone(String phone) {
-        Phone = phone;
-    }
-
-    public Integer getUID() {
-        return UID;
-    }
-
-    public void setUID(Integer s_id) {
-        this.UID = s_id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Users{" +
-                "UID=" + UID +
-                ", username='" + username + '\'' +
+                "UID=" + id +
+                ", username='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", Gender='" + Gender + '\'' +
-                ", Avatar='" + Avatar + '\'' +
-                ", Phone='" + Phone + '\'' +
+                ", Gender='" + profileImage + '\'' +
+                ", Avatar='" + profileImage + '\'' +
+                ", Phone='" + phone + '\'' +
                 '}';
     }
 }

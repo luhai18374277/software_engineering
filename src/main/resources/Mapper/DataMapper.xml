@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tinymall.Dao.DataDao">
+    <delete id="deleteRepeatUser">
+        delete [Users]
+    </delete>
+    <insert id="updateAllUsers" parameterType="java.util.ArrayList">
+        <if test="users!=null and users.size()!=0">
+            insert into [Users](email,name,password,phone,birthday) values
+            <foreach collection="users" item="AUser" separator="," >
+                (#{AUser.email},#{AUser.name},#{AUser.password},#{AUser.phone},#{AUser.birthday})
+            </foreach>
+        </if>
+    </insert>
+    <delete id="deleteRepeatGood">
+        delete [Good]
+    </delete>
+    <insert id="updateAllGoods" parameterType="java.util.ArrayList">
+        insert into [Good](title,price,old_Price,detail,image) values
+        <foreach collection="goods" item="AGood" separator=",">
+            (#{AGood.title},#{AGood.price},#{AGood.oldPrice},#{AGood.detail},#{AGood.image})
+        </foreach>
+    </insert>
+
+    <select id="getAllUsers" resultType="com.example.tinymall.entity.Users">
+        select uid,id,name,phone,email,profile_image as profileImage,password,birthday from [Users]
+    </select>
+
+    <select id="getAllGoods" resultType="com.example.tinymall.entity.Good">
+        select gid,id,title,price,old_price as oldPrice,detail,image,num from [Good]
+    </select>
+</mapper>

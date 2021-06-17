@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public interface MessageService {
     public void sendNewMessage(Message message);
 
-    public ArrayList<Message> selectMessageBySidandFid(Integer UID, Integer FID);
+    public ArrayList<Message> selectMessageBySidandFid(String user, String friend);
 
     public void messageDeleteByMid(Message message);
 }

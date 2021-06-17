@@ -14,11 +14,8 @@
         select * from [Orders] where uid = #{uid}
     </select>
     <select id="findGoodsByName" resultType="Good">
-        select * from [Good] where goodsname like #{string}
+        select * from [Good] where title like #{string}
     </select>
-    <insert id="addNewGoods" parameterType="Good">
-        insert into [Good](goodsname) values (#{goodsname})
-    </insert>
     <delete id="deleteGoods" >
         delete from [Good] where gid = #{gid}
     </delete>

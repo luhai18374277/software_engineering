@@ -33,7 +33,7 @@ public class UserServicelmpl implements UserService {
     }
 
     @Override
-    public Users selectUserByUserid(Integer rid) {
+    public Users selectUserByUserid(String rid) {
         return userDao.selectUserByUserid(rid);
     }
 

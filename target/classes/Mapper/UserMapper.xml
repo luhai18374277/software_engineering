@@ -14,6 +14,6 @@
         update [Users] set username=#{username},password=#{password} where UID=#{UID}
     </update>
     <select id="selectUserByUserid" resultType="Users">
-        select * from [Users] where UID=#{UID}
+        select * from [Users] where id=#{id}
     </select>
 </mapper>

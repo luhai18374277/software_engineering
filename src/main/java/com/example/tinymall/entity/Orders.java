@@ -1,15 +1,20 @@
 package com.example.tinymall.entity;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Data
 @Entity
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer OID;
+
+    private String id;
     private Integer GID; //商品ID
     private Integer UID; //用户ID
     private String address; //配送位置
@@ -23,43 +28,4 @@ public class Orders {
         this.address = address;
     }
 
-    public Integer getOID() {
-        return OID;
-    }
-
-    public void setOID(Integer OID) {
-        this.OID = OID;
-    }
-
-    public Integer getGID() {
-        return GID;
-    }
-
-    public void setGID(Integer GID) {
-        this.GID = GID;
-    }
-
-    public Integer getUID() {
-        return UID;
-    }
-
-    public void setUID(Integer UID) {
-        this.UID = UID;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Integer getNum() {
-        return num;
-    }
-
-    public void setNum(Integer num) {
-        this.num = num;
-    }
 }

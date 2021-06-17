@@ -14,7 +14,7 @@ public interface MessageDao {
 
     public void sendNewMessage(Message message);
 
-    public ArrayList<Message> selectMessageBySidandFid(@Param("uid") Integer uid, @Param("fid") Integer fid);
+    public ArrayList<Message> selectMessageBySidandFid(@Param("uid") String userId, @Param("fid") String friendId);
 
     public void messageDeleteByMid(Message message);
 }

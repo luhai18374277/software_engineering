@@ -20,7 +20,7 @@ public class MessageServicelmpl implements MessageService {
     }
 
     @Override
-    public ArrayList<Message> selectMessageBySidandFid(Integer UID, Integer FID) {
+    public ArrayList<Message> selectMessageBySidandFid(String UID, String FID) {
         return messageDao.selectMessageBySidandFid(UID,FID);
     }
 
